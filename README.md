@@ -28,3 +28,11 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+git 上传步骤
+    查看当前状态  git status;
+    提交文件     git add .
+                git commit -a
+                git pull github.com:121107684/vue.git master
+                git push github.com:121107684/vue.git master

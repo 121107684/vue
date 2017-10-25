@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+<div id="app" >
+  <div id="skin-blur-violate">
     <router-view/>
+  </div>
   </div>
 </template>
 
@@ -12,12 +13,22 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url(./assets/css/animate.css);
+@import url(./assets/css/bootstrap.min.css);
+@import url(./assets/css/calendar.css);
+@import url(./assets/css/file-manager.css);
+@import url(./assets/css/font-awesome.min.css);
+@import url(./assets/css/form.css);
+@import url(./assets/css/generics.css);
+@import url(./assets/css/icons.css);
+@import url(./assets/css/lightbox.css);
+@import url(./assets/css/media-player.css);
+@import url(./assets/css/style.css);
+#app{
+  height: 100%;
+  position: relative;
+}
+#skin-blur-violate {
+  height: 100%;
 }
 </style>
