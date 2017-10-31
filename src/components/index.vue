@@ -1,35 +1,39 @@
 <template>
-  
+  <div id="fullscreen-xo">
+    <app-header></app-header>
+     <div class="clearfix"></div>
+     <section id="main" class="p-relative" role="main">
+      <side-Bar></side-Bar>
+      <router-view/>
+    </section>
+  </div>
 </template>
 
 <script>
+import AppHeader from '../components/publicmodel/header';
+import SideBar from '../components/publicmodel/sidebar';
+import footers from '../components/publicmodel/footers';
+
 export default {
   name: 'index',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App 1'
-    }
+  components: {
+    AppHeader, SideBar,footers
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style scope>
+#fullscreen-xo{
+  position: relative;
+  height: 100%;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+#main {
+  height: -moz-calc(100% - 50px);
+  height: -webkit-calc(100% - 50px);
+  height: calc(100% - 50px);
+  overflow-y: auto;
+  overflow-x: hidden
 }
 </style>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+

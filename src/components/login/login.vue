@@ -21,7 +21,6 @@
             </small>
         </div>
         <!-- Forgot Password -->
-
     </section>
 </template>
 
@@ -38,7 +37,18 @@ export default {
     },
     methods: {
         login() {
-            console.log(this.submit)
+            let postdata = {
+                username:this.submit.username,
+                password:this.submit.password
+            }
+            this.$http.post('/user/loign',postdata)
+            .then(function(res){
+                //console.log(res)
+            })
+            .then(function (res){
+                //console.log(res)
+            })
+            
         }
     }
 }

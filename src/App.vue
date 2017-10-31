@@ -24,11 +24,12 @@ export default {
 @import url(./assets/css/lightbox.css);
 @import url(./assets/css/media-player.css);
 @import url(./assets/css/style.css);
-#app{
+#app, #app>div{
   height: 100%;
   position: relative;
 }
-#skin-blur-violate {
-  height: 100%;
+body{
+  min-height: 100%;
+  overflow: hidden;
 }
 </style>
