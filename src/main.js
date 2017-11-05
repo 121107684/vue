@@ -6,6 +6,7 @@ import router from './router'
 import axios from 'axios'
 import opts from "./config/base"
 import qs from "qs"
+import Vuex from 'vuex'
 
 Vue.config.productionTip = false;
 axios.defaults.baseURL = opts.serviceConfig.baseURL;
@@ -18,7 +19,7 @@ axios.defaults.transformRequest = [function (data) {
     return qs.stringify(postdata);
 }];
 Vue.prototype.$http = axios;
-
+Vue.use(Vuex)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

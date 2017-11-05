@@ -37,10 +37,19 @@
 <script>
 export default {
     name: 'header',
+    data:function(){
+        return{
+            scopeshow:this.$props.scopeshow
+        }    
+    },
     methods:{
         showeilder(){
-            hub.$emit('sidbar','stateChange')
+            this.scopeshow =!this.scopeshow
+            this.$emit('sidebaremit', this.scopeshow);
         }
+    },
+    props:{
+        sideShow:Boolean
     }
 }
 </script>

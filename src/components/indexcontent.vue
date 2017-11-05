@@ -7,7 +7,6 @@
                 <div class="media">
                     <a href="">Send a New Message</a>
                     <span class="drawer-close">&times;</span>
-
                 </div>
                 <div class="overflow" style="height: 254px">
                     <div class="media">
@@ -737,7 +736,12 @@
 
 <style>
 .container {
-   
+    overflow-y: auto;
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+    transition: all .3s
 }
 </style>
 
+】

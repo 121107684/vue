@@ -1,5 +1,5 @@
 <template>
-<div id="app" >
+<div id="app">
   <div id="skin-blur-violate">
     <router-view/>
   </div>
@@ -10,6 +10,7 @@
 export default {
   name: 'app'
 }
+
 </script>
 
 <style>

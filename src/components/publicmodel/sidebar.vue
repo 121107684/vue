@@ -1,37 +1,36 @@
 <template>
-    <aside id="sidebar">
-
+    <aside id="sidebar" v-bind:class="{'toggled':sidebarShow}">
         <!-- Sidbar Widgets -->
         <div class="side-widgets overflow">
             <!-- Profile Menu -->
             <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-                <a href="" data-toggle="dropdown">
-                    <img class="profile-pic animated" src="/static/img/profile-pic.jpg" alt="">
+                <a @click="menuopen">
+                    <img class="profile-pic animated" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509534543302&di=cb032c5f319726e6aeff3b924a82064d&imgtype=0&src=http%3A%2F%2Fdiy.qqjay.com%2Fu2%2F2014%2F1012%2F5c300407c746e414d779859e116915a6.jpg" alt="">
                 </a>
                 <ul class="dropdown-menu profile-menu">
                     <li>
-                        <a href="">My Profile</a>
+                        <a href="">我的工程</a>
                         <i class="icon left">&#61903;</i>
                         <i class="icon right">&#61815;</i>
                     </li>
                     <li>
-                        <a href="">Messages</a>
+                        <a href="">消息</a>
                         <i class="icon left">&#61903;</i>
                         <i class="icon right">&#61815;</i>
                     </li>
                     <li>
-                        <a href="">Settings</a>
+                        <a href="">设置</a>
                         <i class="icon left">&#61903;</i>
                         <i class="icon right">&#61815;</i>
                     </li>
                     <li>
-                        <a href="">Sign Out</a>
+                        <a href="">登出</a>
                         <i class="icon left">&#61903;</i>
                         <i class="icon right">&#61815;</i>
                     </li>
                 </ul>
-                <h4 class="m-0">Malinda Hollaway</h4>
-                @malinda-h
+                <h4 class="m-0">用户名</h4>
+                昵称
             </div>
 
             <!-- Calendar -->
@@ -214,15 +213,18 @@
 <script>
 export default {
     name: "sidebar",
-    data:{
-        sidebarShow:true
+    data:function(){
+        return{
+           
+        }    
     },
     methods:{
-        created(){
-            hub.$on('sidbar',function(){
-                console.log('aaaa')
-            })
-        }
+        menuopen(){
+           console.log("open")
+        }  
+    },
+    props:{
+        sidebarShow:Boolean
     }
 }
 </script>

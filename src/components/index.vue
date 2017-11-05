@@ -1,9 +1,9 @@
 <template>
-  <div id="fullscreen-xo">
-    <app-header></app-header>
+  <div id="fullscreen-xo" v-bind:class="{'menu-active':sidebarShow}">
+    <app-header :sidebarShow="sidebarShow" v-on:sidebaremit="sideshow"></app-header>
      <div class="clearfix"></div>
      <section id="main" class="p-relative" role="main">
-      <side-Bar></side-Bar>
+      <side-Bar :sidebarShow="sidebarShow"></side-Bar>
       <router-view/>
     </section>
   </div>
@@ -16,8 +16,18 @@ import footers from '../components/publicmodel/footers';
 
 export default {
   name: 'index',
+  data:function(){
+    return {
+      sidebarShow:false
+    }
+  },
   components: {
     AppHeader, SideBar,footers
+  },
+  methods:{
+    sideshow:function(ttt){
+      this.sidebarShow = ttt
+    }
   }
 }
 </script>
@@ -30,8 +40,6 @@ export default {
   height: -moz-calc(100% - 50px);
   height: -webkit-calc(100% - 50px);
   height: calc(100% - 50px);
-  overflow-y: auto;
-  overflow-x: hidden
 }
 </style>
 
