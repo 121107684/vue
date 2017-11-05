@@ -181,33 +181,33 @@
             <li class="active">Data</li>
         </ol>
 
-        <h4 class="page-title">DASHBOARD</h4>
+        <h4 class="page-title">所有项目</h4>
 
         <!-- Shortcuts -->
         <div class="block-area shortcut-area">
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/money.png" alt="">
-                <small class="t-overflow">Purchases</small>
+                <img src="../../assets/img/shortcuts/money.png" alt="">
+                <small class="t-overflow">答题统计</small>
             </a>
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/twitter.png" alt="">
-                <small class="t-overflow">Tweets</small>
+                <img src="../../assets/img/shortcuts/twitter.png" alt="">
+                <small class="t-overflow">编辑问题</small>
             </a>
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/calendar.png" alt="">
+                <img src="../../assets/img/shortcuts/calendar.png" alt="">
                 <small class="t-overflow">Calendar</small>
             </a>
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/stats.png" alt="">
+                <img src="../../assets/img/shortcuts/stats.png" alt="">
                 <small class="t-overflow">Statistics</small>
             </a>
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/connections.png" alt="">
+                <img src="../../assets/img/shortcuts/connections.png" alt="">
                 <small class="t-overflow">Connection</small>
             </a>
             <a class="shortcut tile" href="">
-                <img src="img/shortcuts/reports.png" alt="">
-                <small class="t-overflow">Reports</small>
+                <img src="../../assets/img/shortcuts/reports.png" alt="">
+                <small class="t-overflow">统计</small>
             </a>
         </div>
 
