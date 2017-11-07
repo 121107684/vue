@@ -26,3 +26,21 @@
         <router-view/>
     </section>
 </template>
+<style>
+.el-radio__inner {
+    border-radius: 100% !important;
+    background:transparent;  
+}
+.el-radio__input.is-checked .el-radio__inner{
+    background: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.5)
+}
+.el-radio__label {
+    text-shadow: none;
+    color:#aaa
+}
+.el-radio__input.is-checked+.el-radio__label{
+    color:#fff
+}
+</style>
+

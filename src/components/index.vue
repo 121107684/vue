@@ -41,6 +41,13 @@ export default {
   height: -webkit-calc(100% - 50px);
   height: calc(100% - 50px);
 }
+.container {
+    overflow-y: auto;
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+    transition: all .3s
+}
 </style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
