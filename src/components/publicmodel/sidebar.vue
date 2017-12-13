@@ -3,8 +3,8 @@
         <!-- Sidbar Widgets -->
         <div class="side-widgets overflow">
             <!-- Profile Menu -->
-            <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
-                <a @click="menuopen">
+            <div class="text-center s-widget m-b-25 dropdown" id="profile-menu" v-bind:class="{'open':isopen}">
+                <a class="block" @click="menuopen">
                     <img class="profile-pic animated" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1509534543302&di=cb032c5f319726e6aeff3b924a82064d&imgtype=0&src=http%3A%2F%2Fdiy.qqjay.com%2Fu2%2F2014%2F1012%2F5c300407c746e414d779859e116915a6.jpg" alt="">
                 </a>
                 <ul class="dropdown-menu profile-menu">
@@ -103,14 +103,14 @@
         <!-- Side Menu -->
         <ul class="list-unstyled side-menu">
             <li class="active">
-                <a class="sa-side-home" href="index.html">
-                    <span class="menu-item">Dashboard</span>
-                </a>
+                <router-link class="sa-side-home" to="/ticketindex">
+                    <span class="menu-item">管理首页</span>
+                </router-link>
             </li>
             <li>
-                <a class="sa-side-typography" href="typography.html">
-                    <span class="menu-item">Typography</span>
-                </a>
+                <router-link class="sa-side-home" to="/jx3">
+                    <span class="menu-item">基三啪啪啪</span>
+                </router-link>
             </li>
             <li>
                 <a class="sa-side-widget" href="content-widgets.html">
@@ -215,12 +215,12 @@ export default {
     name: "sidebar",
     data:function(){
         return{
-           
+           isopen:true
         }    
     },
     methods:{
         menuopen(){
-           console.log("open")
+            this.isopen = !this.isopen;
         }  
     },
     props:{

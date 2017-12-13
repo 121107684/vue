@@ -44,7 +44,7 @@ export default {
     },
     methods:{
         showeilder(){
-            this.scopeshow =!this.scopeshow
+            this.scopeshow =!this.scopeshow;
             this.$emit('sidebaremit', this.scopeshow);
         }
     },

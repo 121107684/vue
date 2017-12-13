@@ -24,15 +24,23 @@
                             <div class='list-options'>
                                 <a class="btn btn-sm" title="编辑">
                                     <span class="icon">&#61952;</span>
-                                    <span class="icon" @click="editthis(data)">编辑</span>
+                                    <span class="icon" @click="editthis(data,key)">编辑</span>
                                 </a>
                                 <a class="btn btn-sm" title="删除">
                                     <i class="fa fa-trash-o"></i>
                                     <span class="icon">删除</span>
                                 </a>
                             </div>
-                            <h4>{{key+1}}.{{data.q}}</h4>
-                            <h5 v-for="(value,key,index) in data.an" class="col-md-3">{{String.fromCharCode(65+key)}}.{{value}}</h5>
+                            <h4>{{key+1}}.{{data.q}}
+                                <span class="label label-default">{{data.typeof=='only'?'单选':'多选'}}</span>
+                            </h4>
+                            <div class="clearfix">
+                                <h5 v-for="(value,key,index) in data.an" class="col-md-3">{{String.fromCharCode(65+key)}}.{{value}}</h5>
+                            </div>
+                            <h5 class="">
+                                当前题目如果选择：
+                                <b>{{data.quesif}}</b> ， 提示：{{data.placeques}}
+                            </h5>
                         </div>
 
                     </div>
@@ -55,23 +63,22 @@
                             <div class="input-group-btn p-0 m-0">
                                 <button class="btn btn-alt" @click="delthis(key,ansedit.an)">删除</button>
                             </div>
-
                         </div>
                         <p class="m-t-20">题目类型</p>
                         <div class="m-b-15">
-                            <el-radio v-model="radio" label="only">单选</el-radio>
-                            <el-radio v-model="radio" label="more">多选</el-radio>
+                            <el-radio v-model="ansedit.typeof" label="only">单选</el-radio>
+                            <el-radio v-model="ansedit.typeof" label="more">多选</el-radio>
                         </div>
-                        <p class="m-t-20">当前题目如果选择：{{radioif}}</p>
+                        <p class="m-t-20">当前题目如果选择：{{ansedit.quesif}}</p>
                         <div class="m-b-15">
-                            <el-radio v-for="data in radioarr" :key="data" v-model="radioif" v-bind:label="data">
+                            <el-radio v-for="data in radioarr" :key="data" v-model="ansedit.quesif" v-bind:label="data">
                                 <b class="strong">{{data}}</b>
                             </el-radio>
                         </div>
                         <p class="m-t-20">则需要填写文本框，提示语为：</p>
-                        <input v-model="otherans" class="form-control p-10 m-b-10" type="text" placeholder="自定义答案提示语" />
+                        <input v-model="ansedit.placeques" class="form-control p-10 m-b-10" type="text" placeholder="自定义答案提示语" />
 
-                        <button class="btn m-r-5">保存</button>
+                        <button class="btn m-r-5" @click="savedata">保存</button>
                         <button class="btn m-r-5">取消</button>
                         <button @click="clearthis" class="btn m-r-5">清空</button>
                     </div>
@@ -82,82 +89,100 @@
 </template>
 <style scope>
 @media (min-width: 1200px) {
-    .sortable.todo-list .media {
-        background-position: 8px 16px
-    }
+  .sortable.todo-list .media {
+    background-position: 8px 16px;
+  }
 }
 </style>
 <script>
 export default {
-    name: 'editque',
-    data() {
-        return {
-            msg: [{
-                q: '谁是世界上最可爱的人？',
-                an: ['哪吒！', '哪吒！', '哪吒！', '哪吒！']
-            }, {
-                q: '谁是世界上最可爱的人？',
-                an: ['哪吒！', '哪吒！', '哪吒！', '哪吒！']
-            }, {
-                q: '谁是世界上最可爱的人？',
-                an: ['哪吒！', '哪吒！', '哪吒！', '哪吒！']
-            }],
-            ansedit: {
-                q: '',
-                an: ['', '', '', '']
-            },
-            radio: 'only',
-            radioif: '',
-            radioarr: [],
-            otherans: ''
-        }
-    },
-    methods: {
-        editthis(data) {
-            console.log(data);
-            this.ansedit = data;
-            // this.radioarr = []
-            // for (let i in data.an) {
-            //     this.radioarr.push(String.fromCharCode(65 + Number(i)))
-            // }
-        },
-        clearthis() {
-            this.ansedit = {
-                q: '',
-                an: []
-            }
-        },
-        addans() {
-            this.ansedit.an.push('');
-            // this.radioarr = []
-            // for (let i in this.ansedit.an) {
-            //     this.radioarr.push(String.fromCharCode(65 + Number(i)))
-            // }
-        },
-        delthis(index, data) {
-            data.splice(index, 1);
-            // this.radioarr = []
-            // for (let i in this.ansedit.an) {
-            //     this.radioarr.push(String.fromCharCode(65 + Number(i)))
-            // }
-        }
-    },
-    computed: {
-        ansedit: {
-            set: function(newValue) {
-                console.log(newValue,'aa')
-                this.radioarr = []
-                for (let i in this.ansedit.an) {
-                    this.radioarr.push(String.fromCharCode(65 + Number(i)))
-                }
-            },
-            get: function() {
-                return this.msg
-            }
-        }
+  name: "editque",
+  data() {
+    return {
+      msg: [],
+      ansedit: {
+        q: "",
+        an: ["", "", "", ""],
+        typeof: "",
+        quesif: "",
+        placeques: ""
+      },
+      indin: ""
+    };
+  },
+  created: function() {
+    this.msg = [
+      {
+        q: "谁是世界上最可爱的人？",
+        an: ["哪吒！", "哪吒！", "哪吒！", "哪吒！"],
+        typeof: "only",
+        quesif: "C",
+        placeques: "请输入提示"
+      },
+      {
+        q: "谁是世界上最可爱的人？",
+        an: ["哪吒！", "哪吒！", "哪吒！", "哪吒！"],
+        typeof: "only",
+        quesif: "C",
+        placeques: "请输入提示"
+      },
+      {
+        q: "谁是世界上最可爱的人？",
+        an: ["哪吒！", "哪吒！", "哪吒！", "哪吒！"],
+        typeof: "only",
+        quesif: "C",
+        placeques: "请输入提示"
+      }
+    ];
+    this.radioarr = [];
+    for (let i in this.ansedit.an) {
+      this.radioarr.push(String.fromCharCode(65 + Number(i)));
     }
-
-}
-
+  },
+  watch: {
+    "ansedit.an": function(newv, oldv) {
+      this.radioarr = [];
+      for (let i in newv) {
+        this.radioarr.push(String.fromCharCode(65 + Number(i)));
+      }
+    }
+  },
+  methods: {
+    editthis(data, key) {
+      this.indin = key;
+      this.ansedit = data;
+    },
+    clearthis() {
+      this.ansedit = {
+        q: "",
+        an: ["", "", "", ""],
+        typeof: "",
+        quesif: "",
+        placeques: ""
+      };
+    },
+    addans() {
+      this.ansedit.an.push("");
+    },
+    delthis(index, data) {
+      data.splice(index, 1);
+    },
+    savedata() {
+      console.log(this.indin);
+      if (this.indin < 0) {
+        this.$http.post("/user/loign", this.ansedit).then(function(res) {
+          this.msg.push(this.clone(this.ansedit));
+        });
+        
+      } else {
+        this.$http.post("/user/loign", this.ansedit).then(function(res) {
+          this.msg.splice(this.clone(this.ansedit), this.indin);
+          this.clearthis();
+          this.indin = "";
+        });
+      }
+    }
+  }
+};
 </script>
 
