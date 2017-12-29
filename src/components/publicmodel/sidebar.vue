@@ -113,9 +113,9 @@
                 </router-link>
             </li>
             <li>
-                <a class="sa-side-widget" href="content-widgets.html">
-                    <span class="menu-item">Widgets</span>
-                </a>
+                <router-link class="sa-side-calendar" to="/programmerdate">
+                    <span class="menu-item">程序员老黄历</span>
+                </router-link>
             </li>
             <li>
                 <a class="sa-side-table" href="tables.html">

@@ -36,6 +36,36 @@ export default new Router({
             path: '/jx3',
             name: '基三啪啪啪',
             component: () => import('@/components/jxgame/index')
+        },
+        {
+            path: '/programmerdate',
+            name: '程序员老黄历',
+            component: () => import('@/components/programmerdate/index')，
+            children: [{
+                name: "统计",
+                path: '/',
+                component: () => import('@/components/ticket/statistics')
+            },
+            {
+                name: "方位",
+                path: '/programmerdate/position',
+                component: () => import('@/components/programmerdate/position')
+            },
+            {
+                name: "饮料",
+                path: '/programmerdate/drinks',
+                component: () => import('@/components/programmerdate/drinks')
+            },
+            {
+                name: "事件",
+                path: '/programmerdate/thinks',
+                component: () => import('@/components/programmerdate/thinks')
+            },
+            {
+                name: "工具",
+                path: '/programmerdate/tools',
+                component: () => import('@/components/programmerdate/tools')
+            }]
         }]
     },
     {
