@@ -8,25 +8,25 @@
                     <small class="t-overflow">统计</small>
                 </a>
             </router-link>
-            <router-link to="／programmerdate/position">
+            <router-link to="/programmerdate/position">
                 <a class="shortcut tile">
                     <img src="../../assets/img/shortcuts/money.png" alt="">
                     <small class="t-overflow">方位</small>
                 </a>
             </router-link>
-            <router-link to="/ticketindex/editque">
+            <router-link to="/programmerdate/thinks">
                 <a class="shortcut tile">
                     <img src="../../assets/img/shortcuts/twitter.png" alt="">
                     <small class="t-overflow">事件</small>
                 </a>
             </router-link>
-            <router-link to="/ticketindex/settingque">
+            <router-link to="/programmerdate/drinks">
                 <a class="shortcut tile">
                     <img src="../../assets/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">饮料</small>
                 </a>
             </router-link>
-            <router-link to="/ticketindex/settingque">
+            <router-link to="/programmerdate/tools">
                 <a class="shortcut tile">
                     <img src="../../assets/img/shortcuts/calendar.png" alt="">
                     <small class="t-overflow">工具</small>

@@ -40,11 +40,11 @@ export default new Router({
         {
             path: '/programmerdate',
             name: '程序员老黄历',
-            component: () => import('@/components/programmerdate/index')，
+            component: () => import('@/components/programmerdate/index'),
             children: [{
                 name: "统计",
                 path: '/',
-                component: () => import('@/components/ticket/statistics')
+                component: () => import('@/components/programmerdate/statistics')
             },
             {
                 name: "方位",
